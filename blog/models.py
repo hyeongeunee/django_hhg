@@ -1,4 +1,3 @@
-from unittest.util import _MAX_LENGTH
 from django.db import models
 
 class Post(models.Model):
@@ -10,5 +9,8 @@ class Post(models.Model):
     #author: 추후 작성 예정
 # Create your models here.
 
-def __str__(self):
-    return f'[{self.pk}]{self.title}'
+    def __str__(self):
+        return f'[{self.pk}]{self.title}'
+
+    def get_absolute_url(self):
+        return f'/blog/{self.pk}/'
